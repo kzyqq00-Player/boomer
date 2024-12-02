@@ -7,3 +7,9 @@
 node ./dist/main.js
 ```
 输入一个密码就会蹦出一个加密过后的玩意。按`Ctrl+C`退出。
+
+# 项目结构
+本项目使用TypeScript + Node.js开发，看源代码的话请到src文件夹，dist文件夹是编译后文件。
+
+[main.ts](./src/main.ts) 负责输入输出等交互逻辑。
+[website.vars.ts](./src/website.vars.ts) 负责加密密码。
