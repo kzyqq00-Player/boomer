@@ -8,7 +8,7 @@ node ./dist/main.js
 ```
 输入一段文本并回车就会蹦出一个加密过后的玩意。按`Ctrl+C`退出。
 
-另外如果你想加密成任何字符而不仅限于16禁止，在最开始运行的时候加上`--encrypt-to-any-char`或者`-e2ac`参数，就像这样：
+另外如果你想加密成任何字符而不仅限于16进制，在最开始运行的时候加上`--encrypt-to-any-char`或者`-e2ac`参数，就像这样：
 ```bash
 node ./dist/main.js -e2ac
 ```
