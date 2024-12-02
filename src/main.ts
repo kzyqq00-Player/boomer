@@ -6,7 +6,7 @@ const inputer = readline.createInterface({
 (async function () {
     while (1) {
         await new Promise<void>((resolve) => {
-            inputer.question('Please input want to encrypted password:', (password) => {
+            inputer.question('', (password) => {
                 console.log(encrypt(password));
                 resolve();
             });
