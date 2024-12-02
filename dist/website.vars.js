@@ -72,14 +72,14 @@ function y(t) {
     return String.fromCharCode.apply(String, n);
 }
 export class x {
-    static hash(password, unknown) {
-        return x.hashBinary(f(password), unknown);
+    static hash(password, anyChar) {
+        return x.hashBinary(f(password), anyChar);
     }
-    static hashBinary(content, unknown) {
+    static hashBinary(content, anyChar) {
         let e = h(c(content));
-        return unknown ? y(e) : e;
+        return anyChar ? y(e) : e;
     }
 }
-export function encrypt(password) {
-    return x.hash(password, undefined);
+export function encrypt(password, anyChar) {
+    return x.hash(password, anyChar);
 }

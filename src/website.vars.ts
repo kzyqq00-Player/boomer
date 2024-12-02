@@ -80,16 +80,16 @@ function y(t: string) {
 }
 
 export class x {
-    public static hash(password: string, unknown: undefined) {
-        return x.hashBinary(f(password), unknown);
+    public static hash(password: string, anyChar?: boolean) {
+        return x.hashBinary(f(password), anyChar);
     }
 
-    public static hashBinary(content: string, unknown: undefined | boolean) {
+    public static hashBinary(content: string, anyChar?: boolean) {
         let e = h(c(content));
-        return unknown ? y(e) : e;
+        return anyChar ? y(e) : e;
     }
 }
 
-export function encrypt(password: string) {
-    return x.hash(password, undefined);
+export function encrypt(password: string, anyChar?: boolean) {
+    return x.hash(password, anyChar);
 }
