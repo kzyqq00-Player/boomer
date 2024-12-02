@@ -5,12 +5,13 @@ const inputer = readline.createInterface({
 });
 
 const enabledEncriptToAnyChar = process.argv.includes('--encrypt-to-any-char') || process.argv.includes('-e2ac');
+const keepSpecialChars = (process.argv.includes('--keep-special-chars') || process.argv.includes('-ksc')) && enabledEncriptToAnyChar;
 
 (async function () {
     while (1) {
         await new Promise<void>((resolve) => {
             inputer.question('', (password) => {
-                console.log(encrypt(password, enabledEncriptToAnyChar));
+                console.log(encrypt(password, enabledEncriptToAnyChar, keepSpecialChars));
                 resolve();
             });
         });

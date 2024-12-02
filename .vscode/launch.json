@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Launch Program",
+            "program": "${file}",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            /* "args": [
+                "-ksc"
+            ], */
+            "console": "integratedTerminal"
+        }
+    ]
+}

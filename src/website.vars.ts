@@ -90,6 +90,8 @@ export class x {
     }
 }
 
-export function encrypt(password: string, anyChar?: boolean) {
-    return x.hash(password, anyChar);
+export function encrypt(password: string, anyChar?: boolean, keepSpecialChars?: boolean) {
+    let res = x.hash(password, anyChar);
+    !keepSpecialChars && (res = res.replace(/[\x00-\x1f\x7f]/g, ''));
+    return res;
 }
