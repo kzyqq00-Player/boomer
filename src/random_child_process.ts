@@ -3,14 +3,13 @@ import { encrypt } from './website.vars.js';
 
 let shouldOutputNowIndex = argv.includes('true') ? true : false;
 let i = 0;
-let canRun = true;
 
 process.on('message', (data: boolean) => {
     shouldOutputNowIndex = data;
 });
 
 function loop() {
-    while (canRun) {
+    while (true) {
         const rand = Math.random();
         const res = encrypt(rand.toString());
 
@@ -19,7 +18,7 @@ function loop() {
             console.log(i);
             console.log(rand);
             console.log(res);
-            if (shouldOutputNowIndex) console.log();
+            console.log();
         }
 
         if (i % 10000 === 0) {
@@ -31,11 +30,8 @@ function loop() {
 
                 process.stdout.write('\x1B[1A\x1B[2K');
             } else {
-                canRun = false;
-                setImmediate(() => {
-                    canRun = true;
-                    loop();
-                });
+                setImmediate(loop);
+                break;
             }
         }
 
