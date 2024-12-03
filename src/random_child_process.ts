@@ -31,6 +31,7 @@ function loop() {
                 process.stdout.write('\x1B[1A\x1B[2K');
             } else {
                 setImmediate(loop);
+                i++;
                 break;
             }
         }

@@ -25,6 +25,7 @@ function loop() {
             }
             else {
                 setImmediate(loop);
+                i++;
                 break;
             }
         }
