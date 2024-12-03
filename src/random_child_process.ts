@@ -29,11 +29,10 @@ function loop() {
                 while (Date.now() - start < 35) { }
 
                 process.stdout.write('\x1B[1A\x1B[2K');
-            } else {
-                setImmediate(loop);
-                i++;
-                break;
             }
+            setImmediate(loop);
+            i++;
+            break;
         }
 
         i++;
