@@ -20,7 +20,7 @@ stdin.setRawMode(true);
 stdin.on('keypress', (key: string) => {
     switch (key) {
         // @ts-ignore
-        case 'c': childs[9].sendAll(false); break;
+        case 'c': childs.sendAll(false); break;
         // @ts-ignore
         case 'o': childs.sendAll(true); break;
         case '\u0003': exit();

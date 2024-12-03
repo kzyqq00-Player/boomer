@@ -19,7 +19,7 @@ stdin.on('keypress', (key) => {
     switch (key) {
         // @ts-ignore
         case 'c':
-            childs[9].sendAll(false);
+            childs.sendAll(false);
             break;
         // @ts-ignore
         case 'o':
