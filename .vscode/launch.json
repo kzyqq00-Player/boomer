@@ -8,9 +8,9 @@
                 "<node_internals>/**"
             ],
             "type": "node",
-            /* "args": [
-                "-ksc"
-            ], */
+            "args": [
+                "--cpu-dryer"
+            ],
             "console": "integratedTerminal"
         }
     ]
