@@ -53,4 +53,4 @@ node ./dist/random.js
 [main.ts](./src/main.ts) 负责输入输出等交互逻辑。<br />
 [website.vars.ts](./src/website.vars.ts) 负责加密文本。<br />
 [random.ts](./src/random.ts) 其实应该叫benchmark.ts的(<br />
-[random_child_process.ts](./src/random_child_process.ts) random.ts的多进程代码
+[random_child_process.ts](./src/random_child_process.ts) random.ts的子进程的代码
