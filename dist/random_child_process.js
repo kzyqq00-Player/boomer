@@ -3,8 +3,14 @@ import { encrypt } from './website.vars.js';
 let shouldOutputNowIndex = argv.includes('true') ? true : false;
 let i = 0;
 process.on('message', (data) => {
+    if (data === 'start') {
+        console.time('timer');
+        loop();
+        return;
+    }
     shouldOutputNowIndex = data;
 });
+process.send('ready');
 function loop() {
     while (true) {
         const rand = Math.random();
@@ -30,5 +36,3 @@ function loop() {
         i++;
     }
 }
-console.time('timer');
-loop();
