@@ -50,7 +50,7 @@ node ./dist/random.js
 # 项目结构
 本项目使用TypeScript + Node.js开发，看源代码的话请到src文件夹，dist文件夹是编译后文件。
 
-[main.ts](./src/main.ts) 经典加密功能<br />
+[main.ts](./src/main.ts) 经典加密功能的主程序(输入输出逻辑)<br />
 [website.vars.ts](./src/website.vars.ts) 负责加密文本<br />
 [random.ts](./src/random.ts) 其实应该叫benchmark.ts的(<br />
 [random_child_process.ts](./src/random_child_process.ts) random.ts的子进程的代码
