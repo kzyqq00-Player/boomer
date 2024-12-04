@@ -1,5 +1,5 @@
-import { argv } from 'node:process';
-import { encrypt } from './website.vars.js';
+import { argv, stdout } from 'node:process';
+import { fastEncrypt } from './website.vars.js';
 let shouldOutputNowIndex = (function () {
     const SONIndex = argv.indexOf('-son');
     if (SONIndex > -1 && argv[SONIndex + 1] === 'true') {
@@ -33,7 +33,7 @@ enableCPUDryer && process.send('ready');
 function loop() {
     while (true) {
         const rand = Math.random();
-        const res = encrypt(rand.toString());
+        const res = fastEncrypt(rand.toString());
         if (/^\d+$/.test(res)) {
             console.timeLog('timer');
             console.log(i);
@@ -46,7 +46,7 @@ function loop() {
                 console.log(i);
                 let start = Date.now();
                 while (Date.now() - start < 35) { }
-                process.stdout.write('\x1B[1A\x1B[2K');
+                stdout.write('\x1B[1A\x1B[2K');
             }
             setImmediate(loop);
             i++;

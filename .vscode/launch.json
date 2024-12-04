@@ -19,7 +19,7 @@
             ],
             "type": "node",
             "args": [
-                "--cpu-dryer"
+                // "--cpu-dryer"
             ],
             "console": "integratedTerminal"
         }

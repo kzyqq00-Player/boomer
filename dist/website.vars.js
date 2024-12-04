@@ -85,3 +85,6 @@ export function encrypt(password, anyChar, keepSpecialChars) {
     !keepSpecialChars && (res = res.replace(/[\x00-\x1f\x7f]/g, ''));
     return res;
 }
+export function fastEncrypt(password) {
+    return x.hashBinary(password, false);
+}
