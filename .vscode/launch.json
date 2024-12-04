@@ -1,8 +1,18 @@
 {
     "configurations": [
         {
-            "name": "Launch Program",
-            "program": "${file}",
+            "name": "Launch Program (main)",
+            "program": "${workspaceFolder}/dist/main.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Launch Program (benchmark)",
+            "program": "${workspaceFolder}/dist/random.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
