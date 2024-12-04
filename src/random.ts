@@ -5,13 +5,13 @@ import { fork, ChildProcess } from 'node:child_process';
 const enableCPUDryer = argv.includes('--cpu-dryer');
 const shouldOutputNowIndex = (argv.includes('--output-now-index') || argv.includes('-oni')) && !enableCPUDryer;
 
-const child = enableCPUDryer ? undefined : fork((/\\dist/.test(argv[1]) || /\/dist/.test(argv[1])) ? 'dist/random_child_process.js' : 'random_child_process.js', [shouldOutputNowIndex.toString()]);
+const child = enableCPUDryer ? undefined : fork((/\\dist/.test(argv[1]) || /\/dist/.test(argv[1])) ? 'dist/random_child_process.js' : 'random_child_process.js', ['-son', shouldOutputNowIndex.toString(), '-ecd', enableCPUDryer.toString()]);
 const childs: ChildProcess[] = enableCPUDryer ? [] : undefined;
 let preparedChilds = 0;
 const processes = 8;
 if (enableCPUDryer) {
     for (let i = 0; i < processes; i++) {
-        childs.push(fork((/\\dist/.test(argv[1]) || /\/dist/.test(argv[1])) ? 'dist/random_child_process.js' : 'random_child_process.js', [shouldOutputNowIndex.toString()]));
+        childs.push(fork((/\\dist/.test(argv[1]) || /\/dist/.test(argv[1])) ? 'dist/random_child_process.js' : 'random_child_process.js', ['-son', shouldOutputNowIndex.toString(), '-ecd', enableCPUDryer.toString()]));
     }
 }
 emitKeypressEvents(stdin);

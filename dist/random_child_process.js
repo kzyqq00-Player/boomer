@@ -1,16 +1,35 @@
 import { argv } from 'node:process';
 import { encrypt } from './website.vars.js';
-let shouldOutputNowIndex = argv.includes('true') ? true : false;
+let shouldOutputNowIndex = (function () {
+    const SONIndex = argv.indexOf('-son');
+    if (SONIndex > -1 && argv[SONIndex + 1] === 'true') {
+        return true;
+    }
+    else {
+        return false;
+    }
+})();
+let enableCPUDryer = (function () {
+    const ECDIndex = argv.indexOf('-ecd');
+    if (ECDIndex > -1 && argv[ECDIndex + 1] === 'true') {
+        return true;
+    }
+    else {
+        return false;
+    }
+})();
 let i = 0;
-process.on('message', (data) => {
+process.on('message', enableCPUDryer ? (data) => {
     if (data === 'start') {
         console.time('timer');
         loop();
         return;
     }
     shouldOutputNowIndex = data;
+} : (data) => {
+    shouldOutputNowIndex = data;
 });
-process.send('ready');
+enableCPUDryer && process.send('ready');
 function loop() {
     while (true) {
         const rand = Math.random();
@@ -35,4 +54,8 @@ function loop() {
         }
         i++;
     }
+}
+if (!enableCPUDryer) {
+    console.time('timer');
+    loop();
 }
