@@ -41,7 +41,7 @@ if (enableCPUDryer) {
         }
     });
     childs.forEach((v) => {
-        v.on('message', (data) => {
+        v.on('message', () => {
             preparedChilds++;
         });
     });
